@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,55 +14,75 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#2d004d,#5e2ca5,#8e44ad);
 height:100vh;
+overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
+background:linear-gradient(-45deg,#1b0033,#4b0082,#7b2cbf,#3c096c);
+background-size:400% 400%;
+animation:bg 10s infinite alternate;
 color:white;
 text-align:center;
 }
 
-.container{
+@keyframes bg{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+.card{
+width:90%;
+max-width:420px;
 padding:30px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(12px);
+border-radius:25px;
+box-shadow:0 0 30px rgba(255,255,255,.15);
 }
 
 h1{
-font-size:42px;
-margin-bottom:20px;
-animation:fade 2s;
+font-size:35px;
+margin-bottom:15px;
 }
 
 p{
-font-size:20px;
-margin-bottom:30px;
-animation:fade 3s;
+font-size:18px;
+line-height:1.7;
+margin:20px 0;
 }
 
 button{
-padding:18px 35px;
+padding:16px 35px;
 border:none;
 border-radius:50px;
-font-size:20px;
+font-size:18px;
+cursor:pointer;
 background:white;
 color:#6a0dad;
 font-weight:bold;
-cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
 transform:scale(1.05);
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(30px);
+.heart{
+position:absolute;
+color:#ff8bd8;
+font-size:22px;
+animation:float 8s linear infinite;
 }
-to{
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+100%{
+transform:translateY(-120vh);
 opacity:1;
-transform:translateY(0);
 }
 }
 </style>
@@ -71,21 +91,43 @@ transform:translateY(0);
 
 <body>
 
-<div class="container">
+<div class="card">
 
 <h1>💜 Happy Birthday Joyshanara 💜</h1>
 
 <p>
-A little surprise made with love...<br>
-From someone who never stopped praying for your happiness.
+To the world's most beautiful girl... 🌸<br><br>
+
+Someone spent time making this little surprise just to see you smile today.
 </p>
 
-<button onclick="location.href='page2.html'">
+<button onclick="window.location='page2.html'">
 Open Your Surprise 🎁
 </button>
 
 </div>
 
-</body>
+<script>
 
+for(let i=0;i<35;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="💜";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDuration=(5+Math.random()*5)+"s";
+
+h.style.fontSize=(18+Math.random()*20)+"px";
+
+document.body.appendChild(h);
+
+}
+
+</script>
+
+</body>
 </html>
